@@ -7,6 +7,7 @@ categories:
 tags: 
 - Linux
 - nasm
+- 汇编
 - asm
 - gdb
 - debug
@@ -14,25 +15,25 @@ tags:
 
 # 方案尝试
 
-1. 
+- 32-bit ELF
 ```bash
-nasm -f elf name.asm
-ld -m elf_i386 -o name name.o  -Ttext 0x1000
-gdb name
+nasm -f elf t.asm
+ld -m elf_i386 -o t t.o  -Ttext 0x1000
+gdb t
 ```
 
-2. 
+- 64-bit ELF
 ```bash
-nasm -f elf64 name.asm
-ld -o name name.o  -Ttext 0x1000
-gdb name
+nasm -f elf64 t.asm
+ld -o t t.o  -Ttext 0x1000
+gdb t
 ```
 
-3. 
+- 带符号表
 ```bash
-nasm -f elf64 name.asm -g -F stabs
-gcc -o name name.o -g
-gdb name
+nasm -f elf64 t.asm -g -F stabs
+gcc -o t t.o -g
+gdb t
 ```
 <!--more-->
 
@@ -40,7 +41,7 @@ gdb name
 
 昨天刚接触nasm，按网上的资料，编译、连接和调试代码用的是第一种方式（因为系统是x86_64架构的）。后来又看了nasm和ld指令的参数描述，改用第二种方式，编译时直接生成elf64格式的object文件。
 
-可用前这种方案gdb断点调试时发现没有符号表（No symbol table is loaded），仔细看时，才发现刚运行gdb时已经有提示了（Reading symbols from t...(no debugging symbols found)...done.）。查阅资料发现：nasm好像确实不能像gas 那样，在生成的目标代码中包含符号表（gas加上参数--gstabs，同时ld不使用参数 -s 就行了）。
+可用前两种方案gdb断点调试时发现没有符号表（No symbol table is loaded），仔细看时，才发现刚运行gdb时已经有提示了（Reading symbols from t...(no debugging symbols found)...done.）。查阅资料发现：nasm好像确实不能像gas 那样，在生成的目标代码中包含符号表（gas加上参数--gstabs，同时ld不使用参数 -s 就行了）。
 
 又在网上查阅各种关于调试nasm的资料，终于发现了上面的第三种方式，不过之前用ld连接时，需指定入口函数的格式如下：
 

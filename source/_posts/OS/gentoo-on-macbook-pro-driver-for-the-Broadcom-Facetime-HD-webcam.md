@@ -8,6 +8,7 @@ tags:
 - Gentoo
 - mbp
 - drivers
+- 摄像头
 ---
 
 gentoo on macbook pro 按 gentoo wiki 配置 kernel 选项后, 仍然不能使用摄像头
