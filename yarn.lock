@@ -625,7 +625,7 @@ hexo-generator-archive@^1.0.0:
 
 hexo-generator-category@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npm.taobao.org/hexo-generator-category/download/hexo-generator-category-1.0.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhexo-generator-category%2Fdownload%2Fhexo-generator-category-1.0.0.tgz#cd2a2b03eb326da3ef821d6e29408488cc132eb5"
+  resolved "https://registry.npm.taobao.org/hexo-generator-category/download/hexo-generator-category-1.0.0.tgz#cd2a2b03eb326da3ef821d6e29408488cc132eb5"
   integrity sha1-zSorA+sybaPvgh1uKUCEiMwTLrU=
   dependencies:
     hexo-pagination "1.0.0"
@@ -690,7 +690,7 @@ hexo-renderer-stylus@^1.1.0:
 
 hexo-server@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.npm.taobao.org/hexo-server/download/hexo-server-1.0.0.tgz?cache=0&sync_timestamp=1567423598423&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhexo-server%2Fdownload%2Fhexo-server-1.0.0.tgz#af89fcc0a07740ad2a7f33d1d003889aab22927e"
+  resolved "https://registry.npm.taobao.org/hexo-server/download/hexo-server-1.0.0.tgz#af89fcc0a07740ad2a7f33d1d003889aab22927e"
   integrity sha1-r4n8wKB3QK0qfzPR0AOImqsikn4=
   dependencies:
     bluebird "^3.5.5"
