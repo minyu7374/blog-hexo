@@ -34,7 +34,7 @@ deal_article() {
     # <div class="up-time">发布于2017-11-18 14:24:11</div> => date: 2017-11-18T14:24:11+08:00
     date="$(grep -Po '(?<=<div class="up-time">发布于)[0-9-]{10} [0-9:]{8}(?=</div>)' <<<"$content" | tr ' ' 'T')+08:00"
 
-    file="${blog_dir}/$(echo "$title" | sed -r 's/\s+/-/g;s/\//_/').md"
+    file="${blog_dir}/$(echo "$title" | sed -r 's/\s+/-/g;s/\//_/g;s/#//;').md"
 
     echo "article $1 with title '$title' write to file '$file'"
 
