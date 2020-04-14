@@ -15,9 +15,9 @@ tags:
 pacman -S grub efibootmgr
 ```
 
-## 软件源和软件包管理工具
+## 软件包管理工具和软件源
 
-### 工具
+### 管理工具
 
 ```
 pacman(使用wget)
@@ -40,6 +40,7 @@ Server = http://xyne.archlinux.ca/repos/xyne/
 SigLevel = Optional TrustAll
 Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 ```
+<!-- more -->
 
 ## 桌面环境及工具
 
