@@ -2,38 +2,37 @@
 title: "Leetcode #212 Word Search II"
 date: "2015-08-01T12:31:27+08:00"
 categories:
+- [Data Structure, Trie]
+- [LeetCode]
 tags:
+- LeetCode
+- DFS
+- 回溯
+- Trie
 ---
 
-                                            
-<strong></strong>
-
-
-
-
-
-
-
 Given a 2D board and a list of words from the dictionary, find all words in the board.
+
 Each word must be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+
 For example,
 
-Given <strong>words</strong> = <code>["oath","pea","eat","rain"]</code> and <strong>
-board</strong> = 
-[
+Given *words* = `["oath","pea","eat","rain"]` and *board* =
+`[
   ['o','a','a','n'],
   ['e','t','a','e'],
   ['i','h','k','r'],
   ['i','f','l','v']
-]
+]`
 
-Return <code>["eat","oath"]</code>.
+Return `["eat","oath"]`.
+<!-- more -->
 
 
-开始直接重用 第79道Word Serach的代码 tle了，代码如下：
+开始直接重用 第79道Word Serach的代码 *TLE* 了，代码如下：
 
 ```cpp
-class Solution{
+class Solution {
 public:
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
         vector<string> ret;
@@ -71,9 +70,9 @@ public:
 };
 ```
 
-        本题的hint中提到了trie（而它的前一个题211 Add and Search Word - Data structure design是个典型的trie），用trie的思路是先把所给的单词加到Trie字典里，然后再通过回溯（深搜）遍历矩阵中所有可能的单词，将存在于字典中的单词全部找出。另外，代码中需要注意的是，在回溯的过程中不同的路径上有可能会出现重复的单词，所以要用set记录这些单词，保证一个单词只被存储一次。等回溯结束，再将这些单词存到vector中。
+本题的hint中提到了trie（而它的前一个题211 Add and Search Word - Data structure design是个典型的trie），用trie的思路是先把所给的单词加到Trie字典里，然后再通过回溯（深搜）遍历矩阵中所有可能的单词，将存在于字典中的单词全部找出。另外，代码中需要注意的是，在回溯的过程中不同的路径上有可能会出现重复的单词，所以要用set记录这些单词，保证一个单词只被存储一次。等回溯结束，再将这些单词存到vector中。
 
-         AC的代码如下，耗时是88ms。
+AC的代码如下，耗时是88ms。
 
 ```cpp
 typedef struct TrieNode{
@@ -149,8 +148,3 @@ public:
 
 };
 ```
-
-
-
-
-

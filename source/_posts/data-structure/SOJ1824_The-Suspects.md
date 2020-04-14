@@ -21,6 +21,7 @@ In the Not-Spreading-Your-Sickness University (NSYSU), there are many student gr
 Once a member in a group is a suspect, all members in the group are suspects.
 
 However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.
+<!-- more -->
 
 ## Input
 
