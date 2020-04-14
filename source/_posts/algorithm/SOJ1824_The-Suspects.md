@@ -1,5 +1,5 @@
 ---
-title: "SOJ1824: The Suspects"
+title: "SOJ1824 The Suspects"
 date: "2014-07-15T20:51:08+08:00"
 categories:
 - [Algorithm, 并查集]
