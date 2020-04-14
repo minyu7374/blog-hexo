@@ -17,15 +17,16 @@ Each word must be constructed from letters of sequentially adjacent cell, where 
 
 For example,
 
-Given *words* = `["oath","pea","eat","rain"]` and *board* =
-`[
+```
+Given words = ["oath","pea","eat","rain"] and board =
+[
   ['o','a','a','n'],
   ['e','t','a','e'],
   ['i','h','k','r'],
   ['i','f','l','v']
-]`
-
-Return `["eat","oath"]`.
+]
+Return ["eat","oath"].
+```
 <!-- more -->
 
 
@@ -72,7 +73,7 @@ public:
 
 本题的hint中提到了trie（而它的前一个题211 Add and Search Word - Data structure design是个典型的trie），用trie的思路是先把所给的单词加到Trie字典里，然后再通过回溯（深搜）遍历矩阵中所有可能的单词，将存在于字典中的单词全部找出。另外，代码中需要注意的是，在回溯的过程中不同的路径上有可能会出现重复的单词，所以要用set记录这些单词，保证一个单词只被存储一次。等回溯结束，再将这些单词存到vector中。
 
-AC的代码如下，耗时是88ms。
+*AC* 的代码如下，耗时是88ms。
 
 ```cpp
 typedef struct TrieNode{

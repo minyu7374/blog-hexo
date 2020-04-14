@@ -17,6 +17,7 @@ tags:
 <!--more-->
 
 ```python
+
 #!/usr/bin/python
 from OpenGL.GL import *
 from OpenGL.GLU import *
