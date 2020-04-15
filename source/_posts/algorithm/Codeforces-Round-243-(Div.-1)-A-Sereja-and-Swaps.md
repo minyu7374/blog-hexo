@@ -1,6 +1,7 @@
 ---
 title: "Codeforces Round #243 (Div. 1) A Sereja and Swaps"
 date: "2014-05-10T23:52:31+08:00"
+mathjax: true
 categories:
 - [Algorithm, 穷举]
 - [Codeforces]
@@ -19,7 +20,9 @@ tags:
 
 As usual, Sereja has array **a**, its elements are integers: `a[1],a[2],...,a[n]`. Let's introduce notation:
 
-![codeforces 425A](http://espresso.codeforces.com/eeff175d11496a6af7bbd528a58e3e5c10fdf69d.png)
+$$
+f \left( a, l, f \right) = \sum_{i=l}^{r} a \left[ i \right]; \ m \left( a \right) = \underset{1 \leq l \leq r \leq n}{max} f \left( a, l, f \right)
+$$
 
 A swap operation is the following sequence of actions:
 - choose two indexes `i, j (i ≠ j)`;
