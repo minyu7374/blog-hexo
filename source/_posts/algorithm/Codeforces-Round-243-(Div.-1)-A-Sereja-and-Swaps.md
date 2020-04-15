@@ -21,10 +21,11 @@ tags:
 As usual, Sereja has array **a**, its elements are integers: `a[1],a[2],...,a[n]`. Let's introduce notation:
 
 $$
-f \left( a, l, f \right) = \sum_{i=l}^{r} a \left[ i \right]; \ m \left( a \right) = \underset{1 \leq l \leq r \leq n}{max} f \left( a, l, f \right)
+f \left( a, l, r \right) = \sum_{i=l}^{r} a \left[ i \right]; \ m \left( a \right) = \underset{1 \leq l \leq r \leq n}{max} f \left( a, l, r \right)
 $$
 
 A swap operation is the following sequence of actions:
+
 - choose two indexes `i, j (i ≠ j)`;
 - perform assignments `tmp = a[i], a[i] = a[j], a[j] = tmp`.
 
