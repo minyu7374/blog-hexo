@@ -2,10 +2,14 @@
 title: "My Gentoo kernel config  on MacbookPro early 2015 13' Retina"
 date: "2016-12-20T16:27:05+08:00"
 categories:
+- [OS, Linux, Gentoo]
 tags:
+- kernel
+- Gentoo
+- mbp
 ---
 
-                                            
+
 ```cpp
 #
 # Automatically generated file; DO NOT EDIT.
