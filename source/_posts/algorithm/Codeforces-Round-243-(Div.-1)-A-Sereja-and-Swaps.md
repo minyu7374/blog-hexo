@@ -72,29 +72,33 @@ In a single line print the maximum value of *m*(*a*) that Sereja can get if he i
 ### 代码
 
 ```cpp
-#include
-#include
+#include<cstdio>
+#include<algorithm>
 using namespace std;
+
 int main(){
-     int n, k, a[210], b[210], c[210];
-     scanf("%d %d", &n, &k);
-     for(int i = 1; i <= n; i++)
-           scanf("%d",&a[i]);
-     int i, j, p, q, ans= -1e9;
-     for(int l = 1; l <= n; l++){
-           for(int r = l; r <= n; r++){
-                  for(p = 1, i = l;   i <= r;  i++,p++)   b[p] = a[i];
-                  for(q = 1, j = 1;   j=1;  i++,j--){
-                          if(c[j] > b[i])   swap(b[i], c[j]);
-                          else break;
-                  }
-                  int s = 0;
-                  for(int i = 1; i < p; i++)
-                         s += b[i];
-                  ans = max(ans, s);
-           }
-     }
-     printf("%d\n",ans);
-     return 0;
+    int n, k, a[210], b[210], c[210];
+    scanf("%d %d", &n, &k);
+    for(int i = 1; i <= n; i++)
+    	scanf("%d",&a[i]);
+    int i, j, p, q, ans = -1e9;
+    for(int l = 1; l <= n; l++){
+        for(int r = l; r <= n; r++){
+            for(p = 1, i = l; i <= r; i++,p++) b[p] = a[i];
+            for(q = 1, j = 1; j < l; j++,q++) c[q] = a[j];
+            for(j = r+1; j <= n; j++,q++) c[q] = a[j];
+            sort(b+1, b+p);
+            sort(c+1, c+q);
+            for(int i = 1, j = q-1; i<=k && i<p && j>=1; i++,j--){
+                if(c[j] > b[i]) swap(b[i], c[j]); else break;
+            }
+            int s = 0;
+            for(int i = 1; i < p; i++)
+                s += b[i];
+            ans = max(ans, s);
+        }
+	}
+    printf("%d\n",ans);
+    return 0;
 }
 ```
