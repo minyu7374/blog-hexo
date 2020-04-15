@@ -2,16 +2,17 @@
 title: "centos7 ip forwarding 的坑"
 date: "2016-07-21T21:55:13+08:00"
 categories:
+- [OS, Linux]
 tags:
+- Linux
+- CentOS
 ---
 
-                                            
+在Centos6上允许ip转发只需要在 ***/etc/sysctl.conf*** 里加入
 
-
-
-在Centos6上允许ip转发只需要在 /etc/sysctl.conf里加入
-
+`
 net.ipv4.ip_forward = 1 
+`
 
 即可（reboot或用sysctl -p立即生效）
 
@@ -23,8 +24,7 @@ net.ipv4.ip_forward = 1 
 
 google搜索第一页能找到我要的答案。如下：
 
-
-
+```
 in my installation of Centos 7:
 
 cat /etc/sysctl.conf
@@ -34,11 +34,13 @@ System default settings live in /usr/lib/sysctl.d/00-system.conf. To override th
 so, you should add into the file
 
 /usr/lib/sysctl.d/50-default.conf
+```
 
-也就是说，只需要再在　/usr/lib/sysctl.d/50-default.conf　文件里加入
+也就是说，只需要再在 ***/usr/lib/sysctl.d/50-default.conf*** 文件里加入
 
+`
 net.ipv4.ip_forward = 1 
-
+`
 
 就可以了。
 

@@ -11,7 +11,7 @@ tags:
 
 > 原题链接 ：[http://codeforces.com/contest/425/problem/C](http://codeforces.com/contest/425/problem/C)
 
-<center>Sereja and Two Sequences</center>
+<h2><center>Sereja and Two Sequences</center></h2>
 
 sereja has two sequences *a~1~, a~2~, ..., a~n~* and *b~1~, b~2~, ..., b~m~*, consisting of integers. One day Sereja got bored and he decided two play with them. The rules of the game was very simple. Sereja makes several moves, in one move he can perform one of the following actions:
 

@@ -18,7 +18,7 @@ tags:
 <center>time limit per test                                    memory limit per test</center>
 <center>    1 second                                                256 megabytes</center>
 
-As usual, Sereja has array **a**, its elements are integers: `a[1],a[2],...,a[n]`. Let's introduce notation:
+As usual, Sereja has array *a*, its elements are integers: `a[1],a[2],...,a[n]`. Let's introduce notation:
 
 $$
 f \left( a, l, r \right) = \sum_{i=l}^{r} a \left[ i \right]; \ m \left( a \right) = \underset{1 \leq l \leq r \leq n}{max} f \left( a, l, r \right)
