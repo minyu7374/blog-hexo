@@ -17,6 +17,7 @@ net.ipv4.ip_forward = 1 
 即可（reboot或用sysctl -p立即生效）
 
 可在Centos7里这样是远远不够的。
+<!-- more -->
 
 这也导致了我在Centos７上，无论配pptp还是openvpn，都只能是正常连上服务，却不能正常上网。
 
@@ -43,5 +44,3 @@ net.ipv4.ip_forward = 1 
 `
 
 就可以了。
-
-

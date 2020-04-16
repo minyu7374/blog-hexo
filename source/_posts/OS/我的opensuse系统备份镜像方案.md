@@ -26,6 +26,7 @@ Device      Start       End         Sectors     Size  Type
 /dev/sda4   111456300  136622132   25165833     12G  Linux filesystem
 /dev/sda5   136622133  976773134  840151002  400.6G  Linux filesystem
 ```
+<!-- more -->
 
 ## df -h看到的磁盘使用情况：
 

@@ -9,6 +9,7 @@ tags:
 - mbp
 ---
 
+<!-- more -->
 
 ```cpp
 #
@@ -4918,3 +4919,4 @@ CONFIG_SG_POOL=y
 CONFIG_ARCH_HAS_SG_CHAIN=y
 CONFIG_ARCH_HAS_PMEM_API=y
 CONFIG_ARCH_HAS_MMIO_FLUSH=y
+```
