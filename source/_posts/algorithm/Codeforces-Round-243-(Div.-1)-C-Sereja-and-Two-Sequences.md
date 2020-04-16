@@ -21,6 +21,7 @@ sereja has two sequences *a~1~, a~2~, ..., a~n~* and *b~1~, b~2~, ..., b
 The first action is worth e energy units and adds one dollar to Sereja's electronic account. The second action is worth the number of energy units equal to the number of elements Sereja removed from the sequences before performing this action. After Sereja performed the second action, he gets all the money that he earned on his electronic account during the game.
 
 Initially Sereja has s energy units and no money on his account. What maximum number of money can Sereja get? Note, the amount of Seraja's energy mustn't be negative at any time moment.
+<!-- more -->
 
 ## Input
 

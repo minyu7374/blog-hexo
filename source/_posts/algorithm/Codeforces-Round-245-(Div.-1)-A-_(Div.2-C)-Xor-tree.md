@@ -20,6 +20,7 @@ The game is played on a tree having *n* nodes, numbered from 1 to *n*. Each node
 One can perform several (possibly, zero) operations on the tree during the game. The only available type of operation is to pick a node *x*. Right after someone has picked node *x*, the value of node *x* flips, the values of sons of *x* remain the same, the values of sons of sons of *x* flips, the values of sons of sons of sons of *x* remain the same and so on.
 
 The goal of the game is to get each node *i* to have value *goal~i~*, which can also be only 0 or 1. You need to reach the goal of the game by using minimum number of operations.
+<!-- more -->
 
 ## Input
 
@@ -66,7 +67,7 @@ In the first line output an integer number *cnt*, representing the minimal numbe
 #define maxn 100010
 
 std::vector<int> Edge[maxn];
-int n, a[maxn], b[maxn]; 
+int n, a[maxn], b[maxn];
 int cnt = 0, ans[maxn];
 
 void dfs(int rt, int pre, int p1, int p2){
@@ -78,7 +79,7 @@ void dfs(int rt, int pre, int p1, int p2){
     for(int i = 0; i < Edge[rt].size(); i++){
         int &e = Edge[rt][i];     //注意此处的引用
         if(e == pre) continue;    //父节点
-        dfs(e, rt, p2, p1);     //p1 、p2参数位置的交换实现flip的“隔代遗传” 
+        dfs(e, rt, p2, p1);     //p1 、p2参数位置的交换实现flip的“隔代遗传”
     }
 }
 
@@ -90,7 +91,7 @@ int main(){
        Edge[x].push_back(y);
        Edge[y].push_back(x);
     }
-    for(i = 1; i <= n; i++)  scanf("%d", a + i); 
+    for(i = 1; i <= n; i++)  scanf("%d", a + i);
     for(i = 1; i <= n; i++)  scanf("%d", b + i);
     dfs(1, -1, 0, 0);
     printf("%d\n", cnt);
