@@ -9,6 +9,7 @@ tags:
 - mbp
 ---
 
+# config 内容如下：
 <!-- more -->
 
 ```cpp
