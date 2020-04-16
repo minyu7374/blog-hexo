@@ -2,16 +2,22 @@
 title: "带权二分图最佳匹配KM算法模板"
 date: "2014-06-05T23:02:38+08:00"
 categories:
+- [Algorithm, 图论, 二分图匹配]
 tags:
+- ACM
+- 图论
+- 二分图
+- 最佳匹配
 ---
 
-                                            
-          KM算法是在匈牙利算法的基础上扩展出来的，具体原理不再赘述，算法模版如下：
+## 算法模板
+
+KM算法是在匈牙利算法的基础上扩展出来的，具体原理不再赘述，算法模版如下：
 
 ```cpp
 #include <cstdio>
 #include <cstring>
-#include <algorithm> 
+#include <algorithm>
 using namespace std;
 const int MAX_X = 1024;
 const int MAX_Y = 1024;
@@ -29,7 +35,7 @@ void init(){
 }
 
 //寻找增广路径
-bool hungary(int u){   
+bool hungary(int u){
     sx[u] = true;
     for(int v = 0; v < m; v ++)
         if(!sy [v] && lx[u] + ly[v] == weight[u][v]){
@@ -49,7 +55,7 @@ int KM(bool maxsum){ // 参数 maxsum 为 true ，返回最大权匹配，否则
             for(j = 0; j < m; j ++)
                 weight [i] [j] = -weight [i] [j];
     }
-    
+
     // 初始化标号
     memset(ly, 0, sizeof(ly));
     for(i = 0; i < n; i ++){
@@ -73,7 +79,7 @@ int KM(bool maxsum){ // 参数 maxsum 为 true ，返回最大权匹配，否则
                             d = min(lx[i] + ly[j] - weight[i][j], d);
             for(i = 0; i < n; i ++)  if(sx[i])   lx[i] -= d;
             for(i = 0; i < m; i ++)  if(sy[i])   ly[i] += d;
-            
+
         }
     }
     int sum = 0;
@@ -96,59 +102,63 @@ int main(){
             printf("X %d -> Y %d\n", match [i], i);
     }
     return 0;
-} 
+}
 ```
 
-例题1 ： hdu 2255     奔小康赚大钱  
+## 例题1
 
-URL：[http://acm.hdu.edu.cn/showproblem.php?pid=2255](http://acm.hdu.edu.cn/showproblem.php?pid=2255)
+<h3><center>奔小康赚大钱</center></h3>
 
-Problem Description
+> URL：[http://acm.hdu.edu.cn/showproblem.php?pid=2255](http://acm.hdu.edu.cn/showproblem.php?pid=2255)
+
+### Problem Description
+
 传说在遥远的地方有一个非常富裕的村落,有一天,村长决定进行制度改革：重新分配房子。
 
 这可是一件大事,关系到人民的住房问题啊。村里共有n间房间,刚好有n家老百姓,考虑到每家都要有房住（如果有老百姓没房子住的话，容易引起不安定因素），每家必须分配到一间房子且只能得到一间房子。
 
 另一方面,村长和另外的村领导希望得到最大的效益,这样村里的机构才会有钱.由于老百姓都比较富裕,他们都能对每一间房子在他们的经济范围内出一定的价格,比如有3间房子,一家老百姓可以对第一间出10万,对第2间出2万,对第3间出20万.(当然是在他们的经济范围内).现在这个问题就是村领导怎样分配房子才能使收入最大.(村民即使有钱购买一间房子但不一定能买到,要看村领导分配的).
 
- 
+### Input
 
-Input
 输入数据包含多组测试用例，每组数据的第一行输入n,表示房子的数量(也是老百姓家的数量)，接下来有n行,每行n个数表示第i个村名对第j间房出的价格(n<=300)。
 
- 
+### Output
 
-Output
 请对每组数据输出最大的收入值，每组的输出占一行。
 
+### Sample Input
 
- 
-
-Sample Input
-
+```
 2
 100 10
 15 23
+```
 
  
 
-Sample Output
+### Sample Output
 
+```
 123
+```
 
+### 解答
 
- 对模版稍做修改即可：
+对模版稍做修改即可：
+
 ```cpp
 #include <cstdio>
 #include <cstring>
-#include <algorithm> 
+#include <algorithm>
 using namespace std;
 const int MAX = 310;
 
-int n;                     
-int weight[MAX][MAX];        
-int lx[MAX], ly[MAX];       
-bool sx[MAX], sy[MAX];     
-int match[MAX];       
+int n;
+int weight[MAX][MAX];
+int lx[MAX], ly[MAX];
+bool sx[MAX], sy[MAX];
+int match[MAX];
 
 void init(){
     for(int i = 0; i < n; i ++)
@@ -156,7 +166,7 @@ void init(){
             scanf("%d", &weight[i][j]);
 }
 
-bool hungary(int u){   
+bool hungary(int u){
     sx[u] = true;
     for(int v = 0; v < n; v ++)
         if(!sy [v] && lx[u] + ly[v] == weight[u][v]){
@@ -193,7 +203,7 @@ int KM(){
                             d = min(lx[i] + ly[j] - weight[i][j], d);
             for(i = 0; i < n; i ++)  if(sx[i])   lx[i] -= d;
             for(i = 0; i < n; i ++)  if(sy[i])   ly[i] += d;
-            
+
         }
     }
     int sum = 0;
@@ -208,29 +218,41 @@ int main(){
         printf("%d\n", KM());
     }
     return 0;
-} 
+}
 ```
 
-例题2  POJ 2195 Going Home
-URL：[http://poj.org/problem?id=2195](http://poj.org/problem?id=2195)
+## 例题2
 
-Description
+<h3><center>Going Home</center></h3>
+
+> URL：[http://poj.org/problem?id=2195](http://poj.org/problem?id=2195)
+
+### Description
+
 On a grid map there are n little men and n houses. In each unit time, every little man can move one unit step, either horizontally, or vertically, to an adjacent point. For each little man, you need to pay a $1 travel fee for every
  step he moves, until he enters a house. The task is complicated with the restriction that each house can accommodate only one little man.
 
-
 Your task is to compute the minimum amount of money you need to pay in order to send these n little men into those n different houses. The input is a map of the scenario, a '.' means an empty space, an 'H' represents a house on that point, and am 'm' indicates
- there is a little man on that point.
-<center><img alt="" src="http://poj.org/images/2195_1.jpg" /></center>
 
+there is a little man on that point.
+
+<!-- ![](http://poj.org/images/2195_1.jpg) -->
+<img style="margin: auto;" src="http://poj.org/images/2195_1.jpg">
 
 You can think of each point on the grid map as a quite large square, so it can hold n little men at the same time; also, it is okay if a little man steps on a grid with a house without entering that house.
-Input
+
+### Input
+
 There are one or more test cases in the input. Each case starts with a line giving two integers N and M, where N is the number of rows of the map, and M is the number of columns. The rest of the input will be N lines describing
  the map. You may assume both N and M are between 2 and 100, inclusive. There will be the same number of 'H's and 'm's on the map; and there will be at most 100 houses. Input will terminate with 0 0 for N and M.
-Output
+
+### Output
+
 For each test case, output one line with the single integer, which is the minimum amount, in dollars, you need to pay.
-Sample Input
+
+### Sample Input
+
+```
 2 2
 .m
 H.
@@ -249,18 +271,23 @@ mmmHmmmm
 ...H....
 ...H....
 0 0
+```
 
-Sample Output
+### Sample Output
+```
 2
 10
 28
+```
+
+### 解答
 
 除了初始化数据，此题对模版的修改也不大：
 
 ```cpp
 #include <cstdio>
 #include <cstring>
-#include <algorithm> 
+#include <algorithm>
 using namespace std;
 const int MAXN = 110;
 
@@ -268,11 +295,11 @@ struct point{
 	int x;
 	int y;
 }px[MAXN],py[MAXN];
-char map[MAXN];             
-int r, c, n, m;                     
-int weight[MAXN][MAXN];    
-int lx[MAXN], ly[MAXN];     
-bool sx[MAXN], sy[MAXN];     
+char map[MAXN];
+int r, c, n, m;
+int weight[MAXN][MAXN];
+int lx[MAXN], ly[MAXN];
+bool sx[MAXN], sy[MAXN];
 int match[MAXN];
 
 void init(){
@@ -287,10 +314,10 @@ void init(){
      }
      for(int i = 0; i < n; i++)
      	for(int j = 0; j < m; j++)
-     		weight[i][j] = -(abs(px[i].x - py[j].x) + abs(px[i].y - py[j].y));     
+     		weight[i][j] = -(abs(px[i].x - py[j].x) + abs(px[i].y - py[j].y));
 }
 
-bool hungary(int u){   
+bool hungary(int u){
     sx[u] = true;
     for(int v = 0; v < m; v ++)
         if(!sy [v] && lx[u] + ly[v] == weight[u][v]){
@@ -303,7 +330,7 @@ bool hungary(int u){
     return false;
 }
 
-int KM(){ 
+int KM(){
     int i, j;
 
     memset(ly, 0, sizeof(ly));
@@ -327,7 +354,7 @@ int KM(){
                          if(!sy[j])
                             d = min(lx[i] + ly[j] - weight[i][j], d);
               for(i = 0; i < n; i ++)  if(sx[i])   lx[i] -= d;
-              for(i = 0; i < m; i ++)  if(sy[i])   ly[i] += d;        
+              for(i = 0; i < m; i ++)  if(sy[i])   ly[i] += d;
          }
      }
      int sum = 0;
@@ -342,6 +369,5 @@ int main(){
           printf("%d\n", KM());
     }
     return 0;
-} 
+}
 ```
-
