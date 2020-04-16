@@ -15,6 +15,6 @@ commot="$(git show --stat | head -n 1 | awk '{print $NF}')"
 if [ "$commot" != "$(cat "${pre_commit_file}" 2>&-)"  ]; then
     hexo clean
     hexo generate
-    rsync -avz --delete public/ root@wminyu.top:/var/www/blog
-    echo "$commot" > "${pre_commit_file}"
+    rsync -avz --delete public/ root@wminyu.top:/var/www/blog &&
+        echo "$commot" > "${pre_commit_file}"
 fi
