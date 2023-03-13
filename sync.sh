@@ -12,9 +12,8 @@ pro_dir="$(dirname "$0")"
 pre_commit_file="${pro_dir}/.sync_commit.log"
 
 commot="$(git show --stat | head -n 1 | awk '{print $NF}')"
-if [ "$commot" != "$(cat "${pre_commit_file}" 2>&-)"  ]; then
-    hexo clean
+if [ "$commot" != "$(cat "${pre_commit_file}" 2>-)"  ]; then
     hexo generate
-    rsync -avz --delete public/ root@wminyu.top:/var/www/blog &&
-        echo "$commot" > "${pre_commit_file}"
+    rsync -avz --delete public/ root@wminyu.top:/var/www/blog
+    echo "$commot" > "${pre_commit_file}"
 fi
